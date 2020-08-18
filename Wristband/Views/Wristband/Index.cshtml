@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<link rel="stylesheet" href="~/Content/style.css">
+<!--this will be the entire wristband 254*19.05mm-->
+<section class="wristband-area">
+    <div class="wristband">
+        <!--this will be the die cut and numbering area=30mm-->
+        <div id="numbering">
+            <img src="~/Content/numb.jpg" />
+        </div>
+        <!--this will be the area that can be manipulated by the customer = 221mm-->
+        <div class="nox" id="tox">
+
+        </div>
+        @*<div class="nox">
+
+        </div>*@
+        <!--this will be the end blank area=3mm-->
+        <div id="blank">
+        </div>
+    </div>
+</section>
+<div class="pallete">
+        <div class="box">
+            <button onclick="yellow()"  class="btn"  color="yellow" id="yellow"></button>
+            <button onclick="#ffc800()" class="btn" color="#ffc800" id="mustard"></button>
+            <button onclick="#FF9800()" class="btn" color="#FF9800" id="safron"></button>
+            <button onclick="#ff640a()" class="btn" color="#ff640a" id="orange"></button>
+            <button onclick="red()"     class="btn" color="red"     id="red"></button>
+            <button onclick="#bd14da()" class="btn" color="#bd14da" id="purple"></button>
+            <button onclick="#673ab7()" class="btn" color="#673ab7" id="violet"></button>
+            <button onclick="#3f6eb5()" class="btn" color="#3f6eb5" id="navy"></button>
+            <button onclick="#75d8e8()" class="btn" color="#75d8e8" id="lightblue"></button>
+            <button onclick="#35cebf()" class="btn" color="#35cebf" id="aqua"></button>
+            <button onclick="#8bc34a()" class="btn" color="#8bc34a" id="green"></button>
+            <button onclick="#cddc39()" class="btn" color="#cddc39" id="lime"></button>
+            <button onclick="#e1a2e8()" class="btn" color="#e1a2e8" id="pink"></button>
+            <button onclick="#795548()" class="btn" color="#795548" id="brown"></button>
+            <button onclick="#908f8f()" class="btn" color="#908f8f" id="grey"></button>
+            <button onclick="black()"   class="btn"  color="black"  id="black"></button>
+            <button onclick="white()"   class="btn"  color="white"  id="white"></button>
+            <button onclick="#456953()" class="btn" color="#456953" id="darkgreen"></button>
+            <button onclick="#0f422f()" class="btn" color="#0f422f" id="royal"></button>
+            <button onclick="#009688()" class="btn" color="#009688" id="teal"></button>
+            <button onclick="#4192d2()" class="btn" color="#4192d2" id="blue"></button>
+            <button onclick="#cc6883()" class="btn" color="#cc6883" id="salmon"></button>
+            <button onclick="#ffefe8()" class="btn" color="#ffefe8" id="beige"></button>
+        </div>
+
+        <div class="box2">
+            <a onclick="change1()" id="pat1"><button><img src="~/Content/pat11.jpg"></img></button></a>
+            <a onclick="change2()" id="pat2"><button><img src="~/Content/pat22.jpg"></img></button></a>
+            <a onclick="change3()" id="pat3"><button><img src="~/Content/pat33.jpg"></img></button></a>
+
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        const btn = document.querySelectorAll(".btn");
+        const nox = document.querySelector(".nox");
+       // const tox = document.querySelector(".tox1");
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener("click", function () {
+                nox.innerHTML = "";
+                nox.style.background = this.getAttribute("color");
+                this.style.color = this.getAttribute("color");
+            })
+        }
+    </script>
+ 
+
+<script>
+    function change1() {
+
+        var img = new Image();
+        img.src = '/Content/pat1.jpg';
+        document.getElementById("tox").innerHTML = '<img src="' + img.src + '" />';
+    }
+    function change2() {
+        var img = new Image();
+        img.src = '/Content/pat2.jpg';
+        document.getElementById("tox").innerHTML = '<img src="' + img.src + '" />';
+    }
+    function change3() {
+        var img = new Image();
+        img.src = '/Content/pat3.jpg';
+        document.getElementById("tox").innerHTML = '<img src="' + img.src + '" />';
+    }
+</script>

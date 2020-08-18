@@ -1,0 +1,70 @@
+﻿ 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<link rel="stylesheet" href="~/Content/style.css">
+<!--this will be the entire wristband 254*19.05mm-->
+<section class="wristband-area">
+    <div class="wristband">
+        <!--this will be the die cut and numbering area=30mm-->
+        <div id="numbering">
+            <img src="~/Content/numb.jpg" />
+        </div>
+        <!--this will be the area that can be manipulated by the customer = 221mm-->
+        <div class="nox" id="tox">
+
+        </div>
+        @*<div class="nox">
+
+            </div>*@
+        <!--this will be the end blank area=3mm-->
+        <div id="blank">
+        </div>
+    </div>
+</section>
+<div class="pallete">
+    <div class="box">
+       
+            @foreach (var colors in Model.colors)
+            {
+                           
+                <button onclick="changecollor()" class="btn" color=@colors  id=@colors></button>
+             
+            }
+        
+    </div>
+    <div class="box2">
+        @foreach (var btnimg in Model.frmimg)
+        {
+        <a onclick="changeimage(id)" id="@btnimg"><button><img class="img-thumbnail" src="~/Content/@btnimg"></img></button></a>
+        }
+    </div>
+
+
+
+    <script>
+        function changecollor() {
+            const btn = document.querySelectorAll(".btn");
+            const nox = document.querySelector(".nox");
+            // const tox = document.querySelector(".tox1");
+            for (let i = 0; i < btn.length; i++) {
+                btn[i].addEventListener("click", function () {
+                    nox.innerHTML = "";
+                    nox.style.background = this.getAttribute("color");
+                    this.style.color = this.getAttribute("color");
+                })
+            }
+        }
+    </script>
+
+
+    <script>
+        function changeimage(btnimg) {
+            alert(btnimg);
+            var img = new Image();            
+            img.src = '/Content/'+btnimg; 
+            document.getElementById("tox").innerHTML = '<img src="' + img.src + '" />';
+        }
+     </script>
